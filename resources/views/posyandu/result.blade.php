@@ -1,0 +1,127 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-header bg-success text-white">
+                <h4 class="card-title mb-0">
+                    <i class="bi bi-check-circle me-2"></i>
+                    Data Berhasil Disimpan
+                </h4>
+                <p class="card-text mb-0 mt-2 opacity-75">
+                    Data kesehatan telah berhasil ditambahkan ke sistem posyandu
+                </p>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <th width="30%" class="bg-light">Dusun</th>
+                                <td>{{ $data->dusun }}</td>
+                            </tr>
+                            <tr>
+                                <th class="bg-light">Nama Lengkap</th>
+                                <td class="fw-bold">{{ $data->nama }}</td>
+                            </tr>
+                            <tr>
+                                <th class="bg-light">Kategori</th>
+                                <td>
+                                    <span class="badge bg-{{ $data->kategori == 'Balita' ? 'primary' : ($data->kategori == 'Ibu Hamil' ? 'danger' : ($data->kategori == 'Ibu Menyusui' ? 'warning' : 'info')) }}">
+                                        {{ $data->kategori }}
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="bg-light">Jenis Kelamin</th>
+                                <td>{{ $data->jenis_kelamin }}</td>
+                            </tr>
+                            <tr>
+                                <th class="bg-light">Tanggal Lahir</th>
+                                <td>{{ $data->tanggal_lahir_formatted }}</td>
+                            </tr>
+                            <tr>
+                                <th class="bg-light">Umur</th>
+                                <td>{{ $data->umur }} tahun</td>
+                            </tr>
+                            <tr>
+                                <th class="bg-light">Alamat</th>
+                                <td>{{ $data->alamat }}</td>
+                            </tr>
+                            @if($data->nomor_ktp)
+                            <tr>
+                                <th class="bg-light">Nomor KTP</th>
+                                <td>{{ $data->nomor_ktp }}</td>
+                            </tr>
+                            @endif
+                            @if($data->nomor_bpjs)
+                            <tr>
+                                <th class="bg-light">Nomor BPJS</th>
+                                <td>{{ $data->nomor_bpjs }}</td>
+                            </tr>
+                            @endif
+                            <tr>
+                                <th class="bg-light">Berat Badan</th>
+                                <td>{{ $data->berat_badan }} kg</td>
+                            </tr>
+                            <tr>
+                                <th class="bg-light">Tinggi Badan</th>
+                                <td>{{ $data->tinggi_badan }} cm</td>
+                            </tr>
+                            @if($data->imt)
+                            <tr>
+                                <th class="bg-light">IMT</th>
+                                <td>
+                                    <span class="badge bg-{{ $data->imt_color }} me-2">{{ $data->imt }}</span>
+                                    <small class="text-muted">{{ $data->imt_status }}</small>
+                                </td>
+                            </tr>
+                            @endif
+                            @if($data->lingkar_perut)
+                            <tr>
+                                <th class="bg-light">Lingkar Perut</th>
+                                <td>{{ $data->lingkar_perut }} cm</td>
+                            </tr>
+                            @endif
+                            @if($data->tekanan_darah)
+                            <tr>
+                                <th class="bg-light">Tekanan Darah</th>
+                                <td>{{ $data->tekanan_darah }} mmHg</td>
+                            </tr>
+                            @endif
+                            @if($data->mental_dan_emosional)
+                            <tr>
+                                <th class="bg-light">Mental & Emosional</th>
+                                <td>{{ $data->mental_dan_emosional }}</td>
+                            </tr>
+                            @endif
+                            @if($data->keterangan)
+                            <tr>
+                                <th class="bg-light">Keterangan</th>
+                                <td>{{ $data->keterangan }}</td>
+                            </tr>
+                            @endif
+                            <tr>
+                                <th class="bg-light">Tanggal Input</th>
+                                <td>{{ $data->created_at->format('d/m/Y H:i:s') }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-4">
+                    <a href="{{ route('posyandu.index') }}" class="btn btn-success me-md-2">
+                        <i class="bi bi-plus-circle me-1"></i>
+                        Input Data Baru
+                    </a>
+                    <a href="{{ route('posyandu.riwayat') }}" class="btn btn-outline-primary">
+                        <i class="bi bi-table me-1"></i>
+                        Lihat Riwayat
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

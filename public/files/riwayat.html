@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Riwayat Data Posyandu</title>
+</head>
+
+<body>
+    <h1>Riwayat Data Posyandu</h1>
+
+    <form method="GET" action="{{ url_for('riwayat') }}">
+        <input type="text" name="q" placeholder="Cari berdasarkan nama atau kategori"
+            value="{{ request.args.get('q', '') }}">
+        <button type="submit">Cari</button>
+    </form>
+
+    <br>
+    <a href="{{ url_for('index') }}">Tambah Data Baru</a> |
+    <a href="{{ url_for('download_pdf') }}">Download PDF</a> |
+    <a href="{{ url_for('download_excel') }}">Download Excel</a>
+
+
+    <table border="1" cellpadding="5" cellspacing="0">
+        <thead>
+            <tr>
+                {% for kolom in kolom_kolom %}
+                <th>{{ kolom }}</th>
+                {% endfor %}
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+            <tr>
+                {% for kolom in kolom_kolom %}
+                <td>{{ row.get(kolom, '') }}</td>
+                {% endfor %}
+                <td>
+                    <a href="{{ url_for('edit', index=loop.index0) }}">Edit</a>
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="{{ kolom_kolom|length + 1 }}">Tidak ada data</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>
