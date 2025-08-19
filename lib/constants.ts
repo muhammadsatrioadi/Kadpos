@@ -18,7 +18,7 @@ export const FORM_FIELDS: FormField[] = [
     required: true,
   },
   { key: "tanggal_lahir", label: "Tanggal Lahir", type: "date", required: true },
-  { key: "umur", label: "Umur (tahun)", type: "number", required: true },
+  { key: "umur", label: "Umur", type: "number", required: true },
   { key: "alamat", label: "Alamat Lengkap", type: "textarea", required: true },
   { key: "nomor_ktp", label: "Nomor KTP", type: "text" },
   { key: "nomor_bpjs", label: "Nomor BPJS", type: "text" },

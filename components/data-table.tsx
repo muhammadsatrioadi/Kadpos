@@ -60,7 +60,7 @@ export function DataTable({ data, onEdit, onDelete, onView }: DataTableProps) {
               </TableCell>
               <TableCell>{item.dusun}</TableCell>
               <TableCell>{item.jenis_kelamin}</TableCell>
-              <TableCell>{item.umur} tahun</TableCell>
+              <TableCell>{item.umur}</TableCell>
               <TableCell>
                 {item.berat_badan}kg / {item.tinggi_badan}cm
               </TableCell>

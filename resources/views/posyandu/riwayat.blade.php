@@ -116,7 +116,7 @@
                                         </td>
                                         <td>{{ $item->dusun }}</td>
                                         <td>{{ $item->jenis_kelamin }}</td>
-                                        <td>{{ $item->umur }} tahun</td>
+                                        <td>{{ $item->umur }}</td>
                                         <td>{{ $item->berat_badan }}kg / {{ $item->tinggi_badan }}cm</td>
                                         <td>
                                             @if($item->imt)

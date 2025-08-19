@@ -47,6 +47,8 @@ class PosyanduData(db.Model):
     tinggi_badan = db.Column(db.Float, nullable=False)
     imt = db.Column(db.Float)
     lingkar_perut = db.Column(db.Float)
+    lingkar_kepala = db.Column(db.Float)
+    lila = db.Column(db.Float)
     tekanan_darah = db.Column(db.String(20))
     mental_dan_emosional = db.Column(db.Text)
     keterangan = db.Column(db.Text)
@@ -192,6 +194,8 @@ def submit():
             berat_badan=float(request.form['berat_badan']),
             tinggi_badan=float(request.form['tinggi_badan']),
             lingkar_perut=float(request.form['lingkar_perut']) if request.form.get('lingkar_perut') else None,
+            lingkar_kepala=float(request.form['lingkar_kepala']) if request.form.get('lingkar_kepala') else None,
+            lila=float(request.form['lila']) if request.form.get('lila') else None,
             tekanan_darah=request.form.get('tekanan_darah', ''),
             mental_dan_emosional=request.form.get('mental_dan_emosional', ''),
             keterangan=request.form.get('keterangan', ''),
@@ -272,6 +276,8 @@ def update(id):
         data.berat_badan = float(request.form['berat_badan'])
         data.tinggi_badan = float(request.form['tinggi_badan'])
         data.lingkar_perut = float(request.form['lingkar_perut']) if request.form.get('lingkar_perut') else None
+        data.lingkar_kepala = float(request.form['lingkar_kepala']) if request.form.get('lingkar_kepala') else None
+        data.lila = float(request.form['lila']) if request.form.get('lila') else None
         data.tekanan_darah = request.form.get('tekanan_darah', '')
         data.mental_dan_emosional = request.form.get('mental_dan_emosional', '')
         data.keterangan = request.form.get('keterangan', '')
@@ -332,9 +338,10 @@ def export_excel():
         # Define headers
         headers = [
             'No', 'Dusun', 'Nama Lengkap', 'Kategori', 'Jenis Kelamin', 
-            'Tanggal Lahir', 'Umur (tahun)', 'Alamat', 'Nomor KTP', 'Nomor BPJS',
+            'Tanggal Lahir', 'Umur', 'Alamat', 'Nomor KTP', 'Nomor BPJS',
             'Berat Badan (kg)', 'Tinggi Badan (cm)', 'IMT', 'Status IMT',
-            'Lingkar Perut (cm)', 'Tekanan Darah (mmHg)', 'Mental & Emosional',
+            'Lingkar Perut (cm)', 'Lingkar Kepala (cm)', 'Lila (cm)',
+            'Tekanan Darah (mmHg)', 'Mental & Emosional',
             'Keterangan', 'Tanggal Input'
         ]
         
@@ -367,10 +374,12 @@ def export_excel():
             ws.cell(row=row_idx, column=13, value=item.imt or '')
             ws.cell(row=row_idx, column=14, value=item.get_imt_status())
             ws.cell(row=row_idx, column=15, value=item.lingkar_perut or '')
-            ws.cell(row=row_idx, column=16, value=item.tekanan_darah or '')
-            ws.cell(row=row_idx, column=17, value=item.mental_dan_emosional or '')
-            ws.cell(row=row_idx, column=18, value=item.keterangan or '')
-            ws.cell(row=row_idx, column=19, value=item.created_at.strftime('%d/%m/%Y %H:%M'))
+            ws.cell(row=row_idx, column=16, value=item.lingkar_kepala or '')
+            ws.cell(row=row_idx, column=17, value=item.lila or '')
+            ws.cell(row=row_idx, column=18, value=item.tekanan_darah or '')
+            ws.cell(row=row_idx, column=19, value=item.mental_dan_emosional or '')
+            ws.cell(row=row_idx, column=20, value=item.keterangan or '')
+            ws.cell(row=row_idx, column=21, value=item.created_at.strftime('%d/%m/%Y %H:%M'))
         
         # Auto-adjust column widths
         for column in ws.columns:

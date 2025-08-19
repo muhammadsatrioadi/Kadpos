@@ -26,6 +26,8 @@ return new class extends Migration
             $table->decimal('tinggi_badan', 5, 1);
             $table->decimal('imt', 4, 1)->nullable();
             $table->decimal('lingkar_perut', 5, 1)->nullable();
+            $table->decimal('lingkar_kepala', 5, 1)->nullable();
+            $table->decimal('lila', 5, 1)->nullable();
             $table->string('tekanan_darah', 20)->nullable();
             $table->text('mental_dan_emosional')->nullable();
             $table->text('keterangan')->nullable();

@@ -26,6 +26,8 @@ class PosyanduData extends Model
         'tinggi_badan',
         'imt',
         'lingkar_perut',
+        'lingkar_kepala',
+        'lila',
         'tekanan_darah',
         'mental_dan_emosional',
         'keterangan'
@@ -37,6 +39,8 @@ class PosyanduData extends Model
         'tinggi_badan' => 'decimal:1',
         'imt' => 'decimal:1',
         'lingkar_perut' => 'decimal:1',
+        'lingkar_kepala' => 'decimal:1',
+        'lila' => 'decimal:1',
         'umur' => 'integer'
     ];
 

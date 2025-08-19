@@ -96,7 +96,7 @@
 
                         <!-- Umur -->
                         <div class="col-md-6 mb-3">
-                            <label for="umur" class="form-label">Umur (tahun) <span class="text-danger">*</span></label>
+                            <label for="umur" class="form-label">Umur<span class="text-danger">*</span></label>
                             <input type="number" class="form-control @error('umur') is-invalid @enderror" 
                                    id="umur" name="umur" value="{{ old('umur', $data->umur) }}" 
                                    placeholder="Masukkan umur" min="0" max="150" required>

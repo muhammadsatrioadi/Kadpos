@@ -43,7 +43,7 @@
                             </tr>
                             <tr>
                                 <th class="bg-light">Umur</th>
-                                <td>{{ $data->umur }} tahun</td>
+                                <td>{{ $data->umur }}</td>
                             </tr>
                             <tr>
                                 <th class="bg-light">Alamat</th>

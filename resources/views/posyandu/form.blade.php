@@ -86,7 +86,7 @@
 
                         <!-- Umur -->
                         <div class="col-md-6 mb-3">
-                            <label for="umur" class="form-label">Umur (tahun) <span class="text-danger">*</span></label>
+                            <label for="umur" class="form-label">Umur<span class="text-danger">*</span></label>
                             <input type="number" class="form-control @error('umur') is-invalid @enderror" 
                                    id="umur" name="umur" value="{{ old('umur') }}" 
                                    placeholder="Masukkan umur" min="0" max="150" required>
@@ -166,6 +166,28 @@
                                    id="lingkar_perut" name="lingkar_perut" value="{{ old('lingkar_perut') }}" 
                                    placeholder="0.0" min="0" max="200">
                             @error('lingkar_perut')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <!-- Lingkar Kepala -->
+                        <div class="col-md-6 mb-3">
+                            <label for="lingkar_kepala" class="form-label">Lingkar Kepala (cm)</label>
+                            <input type="number" step="0.1" class="form-control @error('lingkar_kepala') is-invalid @enderror" 
+                                   id="lingkar_kepala" name="lingkar_kepala" value="{{ old('lingkar_kepala') }}" 
+                                   placeholder="cm" min="0" max="100">
+                            @error('lingkar_kepala')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <!-- LILA -->
+                        <div class="col-md-6 mb-3">
+                            <label for="lila" class="form-label">LILA (Lingkar Lengan Atas, cm)</label>
+                            <input type="number" step="0.1" class="form-control @error('lila') is-invalid @enderror" 
+                                   id="lila" name="lila" value="{{ old('lila') }}" 
+                                   placeholder="cm" min="0" max="100">
+                            @error('lila')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>

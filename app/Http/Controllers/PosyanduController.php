@@ -185,6 +185,7 @@ class PosyanduController extends Controller
                 'No', 'Dusun', 'Nama', 'Kategori', 'Jenis Kelamin', 'Tanggal Lahir',
                 'Umur', 'Alamat', 'Nomor KTP', 'Nomor BPJS', 'Berat Badan (kg)',
                 'Tinggi Badan (cm)', 'IMT', 'Lingkar Perut (cm)', 'Tekanan Darah',
+                'Lingkar Kepala (cm)', 'LILA (Lingkar Lengan Atas, cm)', 'Tekanan Darah',
                 'Mental & Emosional', 'Keterangan', 'Tanggal Input'
             ]);
 
@@ -197,7 +198,7 @@ class PosyanduController extends Controller
                     $item->kategori,
                     $item->jenis_kelamin,
                     $item->tanggal_lahir_formatted,
-                    $item->umur . ' tahun',
+                    $item->umur,
                     $item->alamat,
                     $item->nomor_ktp,
                     $item->nomor_bpjs,
@@ -205,6 +206,8 @@ class PosyanduController extends Controller
                     $item->tinggi_badan,
                     $item->imt,
                     $item->lingkar_perut,
+                    $item->lingkar_kepala,
+                    $item->lila,
                     $item->tekanan_darah,
                     $item->mental_dan_emosional,
                     $item->keterangan,
@@ -265,6 +268,8 @@ class PosyanduController extends Controller
             'berat_badan' => 'required|numeric|min:0.1|max:500',
             'tinggi_badan' => 'required|numeric|min:10|max:300',
             'lingkar_perut' => 'nullable|numeric|min:0|max:200',
+            'lingkar_kepala' => 'nullable|numeric|min:0|max:100',
+            'lila' => 'nullable|numeric|min:0|max:100',
             'tekanan_darah' => 'nullable|string|max:20',
             'mental_dan_emosional' => 'nullable|string|max:500',
             'keterangan' => 'nullable|string|max:500'

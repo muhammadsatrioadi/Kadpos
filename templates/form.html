@@ -6,7 +6,7 @@
 <div class="row justify-content-center mt-4">
     <div class="col-lg-8">
         <div class="card">
-            <div class="card-header bg-primary text-white">
+            <div class="card-header text-white" style="background: linear-gradient(135deg, #1e7ab7 0%, #358b47 100%);">
                 <h4 class="card-title mb-0">
                     <i class="bi bi-plus-circle me-2"></i>
                     Form Input Data Posyandu
@@ -15,6 +15,7 @@
                     Lengkapi informasi kesehatan. Kolom bertanda <span class="text-warning">*</span> wajib diisi.
                 </p>
             </div>
+
             <div class="card-body">
                 <form action="{{ url_for('submit') }}" method="POST" id="posyanduForm">
                     <div class="row">
@@ -62,7 +63,7 @@
 
                         <!-- Umur -->
                         <div class="col-md-6 mb-3">
-                            <label for="umur" class="form-label">Umur (tahun) <span class="text-danger">*</span></label>
+                            <label for="umur" class="form-label">Umur<span class="text-danger">*</span></label>
                             <input type="number" class="form-control" id="umur" name="umur" placeholder="Masukkan umur"
                                 min="0" max="150" required>
                         </div>
@@ -118,6 +119,20 @@
                             <label for="lingkar_perut" class="form-label">Lingkar Perut (cm)</label>
                             <input type="number" step="0.1" class="form-control" id="lingkar_perut" name="lingkar_perut"
                                 placeholder="0.0" min="0" max="200">
+                        </div>
+
+                        <!-- Lingkar Kepala -->
+                        <div class="col-md-6 mb-3">
+                            <label for="lingkar_kepala" class="form-label">Lingkar Kepala (cm)</label>
+                            <input type="number" step="0.1" class="form-control" id="lingkar_kepala" name="lingkar_kepala"
+                                placeholder="cm" min="0" max="100">
+                        </div>
+
+                        <!-- LILA -->
+                        <div class="col-md-6 mb-3">
+                            <label for="lila" class="form-label">LILA (Lingkar Lengan Atas, cm)</label>
+                            <input type="number" step="0.1" class="form-control" id="lila" name="lila"
+                                placeholder="cm" min="0" max="100">
                         </div>
 
                         <!-- Tekanan Darah -->
